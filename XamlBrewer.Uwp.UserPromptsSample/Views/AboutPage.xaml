@@ -54,9 +54,9 @@
             <LineBreak />
             <LineBreak />
             <Run>The architecture is based on </Run>
-            <Hyperlink NavigateUri="https://github.com/Windows-XAML/Template10.Validation">Windows Template Studio</Hyperlink>
+            <Hyperlink NavigateUri="https://github.com/microsoft/windowsTemplateStudio">Windows Template Studio</Hyperlink>
             <Run> and the implementation on </Run>
-            <Hyperlink NavigateUri="https://github.com/Windows-XAML/Template10.Validation">UWP Community Toolkit</Hyperlink>
+            <Hyperlink NavigateUri="https://github.com/Microsoft/UWPCommunityToolkit">UWP Community Toolkit</Hyperlink>
             <Run>.</Run>
             <LineBreak />      
             <LineBreak />
