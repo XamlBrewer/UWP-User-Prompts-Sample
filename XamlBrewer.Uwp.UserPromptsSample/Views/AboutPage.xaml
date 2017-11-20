@@ -41,7 +41,8 @@
                    Foreground="{StaticResource PageForegroundBrush}"
                    FontSize="20"
                    Grid.Row="1"
-                   Margin="8">
+                   Margin="8"
+                   FontFamily="Segoe UI">
             <Run>This app is a test container for logic and UI to display content dialogs on important milestones:</Run>
             <LineBreak />
             <Run>* First Use</Run>
