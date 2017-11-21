@@ -1,8 +1,7 @@
-﻿using Mvvm.Services;
-using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml.Controls;
 using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.FirstUse;
 using System;
-using Microsoft.Toolkit.Uwp.Helpers.VNext;
+using Microsoft.Toolkit.Uwp.Helpers;
 using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.NewRelease;
 
 namespace XamlBrewer.Uwp.UserPromptsSample

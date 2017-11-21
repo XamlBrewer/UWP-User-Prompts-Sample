@@ -1,9 +1,7 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
-using VNext = Microsoft.Toolkit.Uwp.Helpers.VNext;
 using System;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
-using Microsoft.Toolkit.Uwp.Helpers.VNext;
 
 namespace XamlBrewer.Uwp.UserPromptsSample.Services.Activation.NewRelease
 {
@@ -14,9 +12,9 @@ namespace XamlBrewer.Uwp.UserPromptsSample.Services.Activation.NewRelease
 
         internal static async Task ShowIfAppropriateAsync()
         {
-            var currentVersion = VNext.SystemInformation.ApplicationVersion;
+            var currentVersion = SystemInformation.ApplicationVersion;
 
-            if (currentVersion.ToFormattedString() == VNext.SystemInformation.FirstVersionInstalled.ToFormattedString())
+            if (currentVersion.ToFormattedString() == SystemInformation.FirstVersionInstalled.ToFormattedString())
             {
                 // Original version. Ignore.
                 return;

@@ -5,7 +5,8 @@ using Windows.UI.Xaml;
 using XamlBrewer.Uwp.UserPromptsSample;
 using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.FirstUse;
 using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.NewRelease;
-using VNext = Microsoft.Toolkit.Uwp.Helpers.VNext;
+using Microsoft.Toolkit.Uwp.Helpers;
+using Windows.Storage;
 
 namespace Mvvm.Services
 {
@@ -13,6 +14,14 @@ namespace Mvvm.Services
     {
         public async Task LaunchAsync(LaunchActivatedEventArgs e)
         {
+            // Emergency procedure: clear all Local Settings
+            // var containerSettings = (ApplicationDataContainerSettings)ApplicationData.Current.LocalSettings.Values;
+            // var keys = containerSettings.Keys;
+            // foreach (var key in keys)
+            // {
+            //     ApplicationData.Current.LocalSettings.Values.Remove(key);
+            // }
+
             // Custom pre-launch service calls.
             await PreLaunchAsync(e);
 
@@ -30,14 +39,14 @@ namespace Mvvm.Services
         {
             Theme.ApplyToContainer();
 
-            if (VNext.SystemInformation.IsFirstRun)
+            if (SystemInformation.IsFirstRun)
             {
                 // First-time app initialization.
                 // ...
                 FirstUseActivationService.Reset();
             }
 
-            if (VNext.SystemInformation.IsAppUpdated)
+            if (SystemInformation.IsAppUpdated)
             {
                 // New release app initialization.
                 // ...
@@ -45,7 +54,9 @@ namespace Mvvm.Services
             }
 
             // Start tracking app usage (launch count, uptime, ...)
-            VNext.SystemInformation.TrackAppUse(e);
+            // remember uptime to make it total....
+            // var uptimeSoFar = localObjectStorageHelper.Read<long>(nameof(AppUptime));
+            SystemInformation.TrackAppUse(e);
 
             await Task.CompletedTask;
         }
