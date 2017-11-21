@@ -10,3 +10,5 @@ Architecture is inspired by [Windows Template Studio](https://github.com/microso
 Implementation is powered by [UWP Community Toolkit](https://github.com/Microsoft/UWPCommunityToolkit).
 
 (Requires Fall Creators Update)
+
+![Screenshot](Assets/Screenshot.png?raw=true "Edit Form")
