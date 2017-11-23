@@ -3,7 +3,7 @@ Demonstrates logic and UI to display content dialogs on important milestones:
 * first run, 
 * new release,
 * trial to purchase (in progress),
-* rate and review (todo).
+* rate and review (in progress).
 
 Architecture is inspired by [Windows Template Studio](https://github.com/microsoft/windowsTemplateStudio).
 
