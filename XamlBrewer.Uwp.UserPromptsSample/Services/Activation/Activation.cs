@@ -9,6 +9,7 @@ using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.Storage;
 using System.Diagnostics;
 using System;
+using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.TrialToPurchase;
 
 namespace Mvvm.Services
 {
@@ -42,19 +43,9 @@ namespace Mvvm.Services
         {
             Theme.ApplyToContainer();
 
-            if (SystemInformation.IsFirstRun)
-            {
-                // First-time app initialization.
-                // ...
-                FirstUseActivationService.Reset();
-            }
-
-            if (SystemInformation.IsAppUpdated)
-            {
-                // New release app initialization.
-                // ...
-                NewReleaseActivationService.Reset();
-            }
+            await FirstUseActivationService.PreLaunchAsync(e);
+            await NewReleaseActivationService.PreLaunchAsync(e);
+            await TrialToPurchaseActivationService.PreLaunchAsync(e);
 
             // Start tracking app usage (launch count, uptime, ...)
             try
@@ -91,8 +82,9 @@ namespace Mvvm.Services
         {
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
 
-            await FirstUseActivationService.ShowIfAppropriateAsync();
-            await NewReleaseActivationService.ShowIfAppropriateAsync();
+            await FirstUseActivationService.ShowIfAppropriateAsync(e);
+            await NewReleaseActivationService.ShowIfAppropriateAsync(e);
+            await TrialToPurchaseActivationService.ShowIfAppropriateAsync(e);
 
             await Task.CompletedTask;
         }

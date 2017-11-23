@@ -1,6 +1,7 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml.Controls;
 
 namespace XamlBrewer.Uwp.UserPromptsSample.Services.Activation.FirstUse
@@ -10,7 +11,19 @@ namespace XamlBrewer.Uwp.UserPromptsSample.Services.Activation.FirstUse
         private const string HasShown = "FirstUseActivation_HasShown";
         private static readonly LocalObjectStorageHelper _localSettings = new LocalObjectStorageHelper();
 
-        internal static async Task ShowIfAppropriateAsync()
+        internal static async Task PreLaunchAsync(LaunchActivatedEventArgs e)
+        {
+            if (SystemInformation.IsFirstRun)
+            {
+                // First-time app initialization.
+                // ...
+                Reset();
+            }
+
+            await Task.CompletedTask;
+        }
+
+        internal static async Task ShowIfAppropriateAsync(LaunchActivatedEventArgs e)
         {
             bool hasShownFirstRun = _localSettings.Read(HasShown, false);
 

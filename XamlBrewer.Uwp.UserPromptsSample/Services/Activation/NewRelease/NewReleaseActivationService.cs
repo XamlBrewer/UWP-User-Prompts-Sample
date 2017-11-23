@@ -1,6 +1,7 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml.Controls;
 
 namespace XamlBrewer.Uwp.UserPromptsSample.Services.Activation.NewRelease
@@ -10,7 +11,19 @@ namespace XamlBrewer.Uwp.UserPromptsSample.Services.Activation.NewRelease
         private const string HasShown = "NewReleaseActivation_HasShown";
         private static readonly LocalObjectStorageHelper _localSettings = new LocalObjectStorageHelper();
 
-        internal static async Task ShowIfAppropriateAsync()
+        internal static async Task PreLaunchAsync(LaunchActivatedEventArgs e)
+        {
+            if (SystemInformation.IsAppUpdated)
+            {
+                // New release app initialization.
+                // ...
+                NewReleaseActivationService.Reset();
+            }
+
+            await Task.CompletedTask;
+        }
+
+        internal static async Task ShowIfAppropriateAsync(LaunchActivatedEventArgs e)
         {
             var currentVersion = SystemInformation.ApplicationVersion;
 

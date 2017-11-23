@@ -108,6 +108,10 @@
       <DependentUpon>NewReleaseDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\Activation\NewRelease\NewReleaseActivationService.cs" />
+    <Compile Include="Services\Activation\TrialToPurchase\TrialToPurchaseActivationService.cs" />
+    <Compile Include="Services\Activation\TrialToPurchase\TrialToPurchaseDialog.xaml.cs">
+      <DependentUpon>TrialToPurchaseDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\Dialogs\ModalView.cs" />
     <Compile Include="Services\Icons\Icon.cs" />
     <Compile Include="Services\Navigation\Navigation.cs" />
@@ -168,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Services\Activation\TrialToPurchase\TrialToPurchaseDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Services\Dialogs\ContentDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -202,9 +210,7 @@
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\Activation\Purchase\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

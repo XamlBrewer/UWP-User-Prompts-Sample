@@ -113,6 +113,7 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
                 <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <TextBlock Text="Dialogs"
                        Foreground="{StaticResource PageTitleBrush}"
@@ -136,8 +137,21 @@
             <Button Content="Reset Service"
                     Click="Button_Click_4"
                     Grid.Row="2"
-                    Grid.Column="2"
-                    FontFamily="Segoe UI" />
+                    Grid.Column="2" />
+            <TextBlock Text="Trial To Purchase Service"
+                       Grid.Row="3" />
+            <Button Content="Show Dialog"
+                    Click="Button_Click_5"
+                    Grid.Row="3"
+                    Grid.Column="1" />
+            <Button Content="Reset Service"
+                    Click="Button_Click_6"
+                    Grid.Row="3"
+                    Grid.Column="2"/>
+            <Button Content="Purchase"
+                    Click="Button_Click_7"
+                    Grid.Row="3"
+                    Grid.Column="3" />
         </Grid>
     </Grid>
 </Page>

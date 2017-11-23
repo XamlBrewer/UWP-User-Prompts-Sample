@@ -3,6 +3,7 @@ using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.FirstUse;
 using System;
 using Microsoft.Toolkit.Uwp.Helpers;
 using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.NewRelease;
+using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.TrialToPurchase;
 
 namespace XamlBrewer.Uwp.UserPromptsSample
 {
@@ -37,6 +38,30 @@ namespace XamlBrewer.Uwp.UserPromptsSample
         private void Button_Click_4(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             NewReleaseActivationService.Reset();
+        }
+
+        private async void Button_Click_5(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            await new TrialToPurchaseDialog().ShowAsync();
+        }
+
+        private void Button_Click_6(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            TrialToPurchaseActivationService.Reset();
+        }
+
+        private async void Button_Click_7(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            try
+            {
+                await TrialToPurchaseActivationService.SimulatePurchase();
+
+            }
+            catch (Exception)
+            {
+                // Purchase failed.
+            }
+
         }
     }
 }
