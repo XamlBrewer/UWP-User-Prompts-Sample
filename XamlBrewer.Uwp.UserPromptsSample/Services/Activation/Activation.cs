@@ -7,6 +7,8 @@ using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.FirstUse;
 using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.NewRelease;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.Storage;
+using System.Diagnostics;
+using System;
 
 namespace Mvvm.Services
 {
@@ -19,7 +21,8 @@ namespace Mvvm.Services
             // var keys = containerSettings.Keys;
             // foreach (var key in keys)
             // {
-            //     ApplicationData.Current.LocalSettings.Values.Remove(key);
+            // Debug.WriteLine(key);
+            // ApplicationData.Current.LocalSettings.Values.Remove(key);
             // }
 
             // Custom pre-launch service calls.
@@ -54,9 +57,28 @@ namespace Mvvm.Services
             }
 
             // Start tracking app usage (launch count, uptime, ...)
-            // remember uptime to make it total....
-            // var uptimeSoFar = localObjectStorageHelper.Read<long>(nameof(AppUptime));
-            SystemInformation.TrackAppUse(e);
+            try
+            {
+                // Make the AppUptime cumulative over sessions.
+
+                // v1.0 
+                // Does not work because AppUptime returns TimeSpan.MinValue too often.
+                // var uptimeSoFar = SystemInformation.AppUptime;
+                // if (uptimeSoFar == TimeSpan.MinValue)
+                // {
+                //     uptimeSoFar = TimeSpan.FromSeconds(0);
+                // }
+
+                // v2.0
+                var uptimeSoFar = TimeSpan.FromTicks(new LocalObjectStorageHelper().Read<long>("AppUptime", 0));
+
+                SystemInformation.TrackAppUse(e); // Resets AppUptime to 0.
+                SystemInformation.AddToAppUptime(uptimeSoFar);
+            }
+            catch (Exception)
+            {
+                SystemInformation.TrackAppUse(e);
+            }
 
             await Task.CompletedTask;
         }
