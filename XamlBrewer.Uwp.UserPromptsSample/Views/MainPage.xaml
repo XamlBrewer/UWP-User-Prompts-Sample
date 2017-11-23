@@ -77,14 +77,13 @@
                        Grid.Row="1" />
             <TextBlock Text="{x:Bind ApplicationVersion}"
                        Grid.Row="1"
-                       Grid.Column="1"
-                       FontFamily="Segoe UI" />
+                       Grid.Column="1" />
             <TextBlock Text="Times Launched"
                        Grid.Row="2" />
             <TextBlock Text="{x:Bind LaunchCount}"
                        Grid.Row="2"
                        Grid.Column="1" />
-            <TextBlock Text="Uptime"
+            <TextBlock Text="Total Uptime"
                        Grid.Row="3" />
             <TextBlock Text="{x:Bind Uptime}"
                        Grid.Row="3"
@@ -104,6 +103,7 @@
               BorderThickness="1"
               CornerRadius="5">
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
@@ -147,11 +147,22 @@
             <Button Content="Reset Service"
                     Click="Button_Click_6"
                     Grid.Row="3"
-                    Grid.Column="2"/>
+                    Grid.Column="2" />
             <Button Content="Purchase"
                     Click="Button_Click_7"
                     Grid.Row="3"
                     Grid.Column="3" />
+            <TextBlock Text="Rate And Review Service"
+                       Grid.Row="4"
+                       FontFamily="Segoe UI" />
+            <Button Content="Show Dialog"
+                    Click="Button_Click_8"
+                    Grid.Row="4"
+                    Grid.Column="1" />
+            <Button Content="Reset Service"
+                    Click="Button_Click_9"
+                    Grid.Row="4"
+                    Grid.Column="2" />
         </Grid>
     </Grid>
 </Page>

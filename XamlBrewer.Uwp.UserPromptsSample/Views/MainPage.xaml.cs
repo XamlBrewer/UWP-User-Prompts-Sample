@@ -4,6 +4,7 @@ using System;
 using Microsoft.Toolkit.Uwp.Helpers;
 using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.NewRelease;
 using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.TrialToPurchase;
+using XamlBrewer.Uwp.UserPromptsSample.Services.Activation.RateAndReview;
 
 namespace XamlBrewer.Uwp.UserPromptsSample
 {
@@ -62,6 +63,16 @@ namespace XamlBrewer.Uwp.UserPromptsSample
                 // Purchase failed.
             }
 
+        }
+
+        private async void Button_Click_8(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            await new RateAndReviewDialog().ShowAsync();
+        }
+
+        private void Button_Click_9(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            RateAndReviewActivationService.Reset();
         }
     }
 }

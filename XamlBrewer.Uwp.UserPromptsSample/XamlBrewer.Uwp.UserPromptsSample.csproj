@@ -108,6 +108,10 @@
       <DependentUpon>NewReleaseDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\Activation\NewRelease\NewReleaseActivationService.cs" />
+    <Compile Include="Services\Activation\RateAndReview\RateAndReviewActivationService.cs" />
+    <Compile Include="Services\Activation\RateAndReview\RateAndReviewDialog.xaml.cs">
+      <DependentUpon>RateAndReviewDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\Activation\TrialToPurchase\TrialToPurchaseActivationService.cs" />
     <Compile Include="Services\Activation\TrialToPurchase\TrialToPurchaseDialog.xaml.cs">
       <DependentUpon>TrialToPurchaseDialog.xaml</DependentUpon>
@@ -169,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Services\Activation\NewRelease\NewReleaseDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Services\Activation\RateAndReview\RateAndReviewDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
